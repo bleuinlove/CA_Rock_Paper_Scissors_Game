@@ -8,7 +8,7 @@ function getUserChoice() {
 }
 }
 function getComputerChoice() {
-  Math.floor(Math.random() * 3);
+  var randomNumber = Math.floor(Math.random()*3);
   switch (randomNumber) {
     case 0:
       return 'rock';
@@ -21,14 +21,11 @@ function getComputerChoice() {
 function determineWinner(userChoice, computerChoice) {
   if (userChoice === computerChoice){
     return  'Game is a tie!';
-  }
-  if(userChoice === 'rock') {
-    if (computerChoice === 'scissors') {
+  } if (userChoice === 'bomb'){
     return 'You won!';
-  }else {
-    return 'Computer won!';
   }
-    
+  if(userChoice === 'rock' && computerChoice === 'scissors') {
+    return 'You won!';
   }else if (userChoice === 'scissors' && computerChoice === 'rock') {
     return 'Computer won!';
   }else if (userChoice === 'rock' && computerChoice === 'paper') {
@@ -43,5 +40,6 @@ function playGame () {
   console.log('You threw: ' + userChoice);
   console.log('Computer threw: ' + computerChoice);
   console.log(determineWinner(userChoice, computerChoice));
+
 }
 playGame();
